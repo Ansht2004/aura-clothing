@@ -42,6 +42,20 @@ def create_app(config_name=None):
     db.init_app(app)
     jwt.init_app(app)
 
+    # Automatic schema verification & migration
+    with app.app_context():
+        try:
+            db.create_all()
+            from sqlalchemy import text
+            with db.engine.connect() as conn:
+                try:
+                    conn.execute(text("ALTER TABLE product_images ADD COLUMN color VARCHAR(50)"))
+                    conn.commit()
+                except Exception:
+                    pass  # column already exists
+        except Exception as e:
+            print(f"[SCHEMA INIT] Notice: {e}")
+
     # Enable CORS for frontend applications
     CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 

@@ -100,7 +100,7 @@ export const ProductDetailPage: React.FC = () => {
 
       } catch (err) {
         console.warn("Using offline luxury cache for product:", err);
-        const fallback = FALLBACK_PRODUCTS.find(p => p.id === Number(id));
+        const fallback = FALLBACK_PRODUCTS.find((p: Product) => p.id === Number(id));
         if (fallback) {
           setProduct(fallback);
           setSelectedImage(fallback.primary_image);

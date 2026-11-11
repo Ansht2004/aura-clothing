@@ -15,7 +15,8 @@ class Config:
     if _raw_db_url and _raw_db_url.startswith('postgres://'):
         _raw_db_url = _raw_db_url.replace('postgres://', 'postgresql://', 1)
     
-    SQLALCHEMY_DATABASE_URI = _raw_db_url or f"sqlite:///{os.path.join(BASE_DIR, 'aura_clothing.db')}"
+    _db_path = os.path.join(BASE_DIR, 'aura_clothing.db').replace('\\', '/')
+    SQLALCHEMY_DATABASE_URI = _raw_db_url or f"sqlite:///{_db_path}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ENGINE_OPTIONS = {
         "pool_recycle": 280,

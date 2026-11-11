@@ -18,3 +18,8 @@ node_modules/
 *.log
 .DS_Store
 Thumbs.db
+
+# Build image copies & instance duplicates
+frontend/dist/images/
+instance/
+backend/instance/

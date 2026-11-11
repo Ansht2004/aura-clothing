@@ -79,12 +79,13 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: 'All Pieces', shortLabel: 'All', path: '/products' },
-    { label: 'Dresses', shortLabel: 'Dresses', path: '/products?category=womens-dresses' },
-    { label: 'Shirts & Polos', shortLabel: 'Shirts', path: '/products?category=mens-shirts' },
-    { label: 'Outerwear', shortLabel: 'Outerwear', path: '/products?category=blazers-coats' },
-    { label: 'Knitwear', shortLabel: 'Knitwear', path: '/products?category=knitwear-sweaters' },
-    { label: 'Summer Linen', shortLabel: 'Linen', path: '/products?category=summer-linen' },
-    { label: 'Denim', shortLabel: 'Denim', path: '/products?category=denim-jeans' },
+    { label: 'Gowns & Dresses', shortLabel: 'Gowns', path: '/products?category=evening-gowns' },
+    { label: 'Fine Knitwear', shortLabel: 'Knitwear', path: '/products?category=fine-knitwear' },
+    { label: 'Sweaters', shortLabel: 'Sweaters', path: '/products?category=sweaters-cardigans' },
+    { label: 'Formal Shirts', shortLabel: 'Shirts', path: '/products?category=formal-dress-shirts' },
+    { label: 'Tailored Blazers', shortLabel: 'Blazers', path: '/products?category=tailored-blazers' },
+    { label: 'Selvedge Denim', shortLabel: 'Denim', path: '/products?category=selvedge-denim' },
+    { label: 'Leather & Boots', shortLabel: 'Boots', path: '/products?category=leather-boots' },
   ];
 
   // Mouse move handler: snaps directly on first enter, glides smoothly between links

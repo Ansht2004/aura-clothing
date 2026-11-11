@@ -151,8 +151,8 @@ export const HomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
-          {categories.slice(0, 6).map((cat, idx) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
+          {categories.slice(0, 8).map((cat, idx) => (
             <Link
               key={cat.id}
               to={`/products?category=${cat.slug}`}

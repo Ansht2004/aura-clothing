@@ -128,7 +128,7 @@ export const ProductListPage: React.FC = () => {
           <span>Categories</span>
           <span className="text-[10px] text-aura-gold font-mono">{categories.length}</span>
         </h4>
-        <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+        <div className="space-y-1.5 max-h-[380px] overflow-y-auto pr-1">
           <button
             onClick={() => updateParam('category', '')}
             className={`w-full text-left py-2 px-3 rounded-xl transition-all flex items-center justify-between ${

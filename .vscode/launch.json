@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend: Flask API",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/app.py",
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/backend/venv/Scripts/python.exe",
+      "env": {
+        "FLASK_ENV": "development",
+        "PORT": "5000"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Frontend: Vite Dev Server",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Backend: Run Pytest Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["tests", "-v"],
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/backend/venv/Scripts/python.exe",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Backend: Seed Database (>1,800 Records)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/seed_data.py",
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/backend/venv/Scripts/python.exe",
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack: Backend + Frontend",
+      "configurations": ["Backend: Flask API", "Frontend: Vite Dev Server"],
+      "stopAll": true
+    }
+  ]
+}

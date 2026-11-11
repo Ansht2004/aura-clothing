@@ -1,0 +1,25 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/backend/venv/Scripts/python.exe",
+  "python.analysis.autoSearchPaths": true,
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "backend/tests"
+  ],
+  "python.testing.unittestEnabled": false,
+  "typescript.tsdk": "${workspaceFolder}/frontend/node_modules/typescript/lib",
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "html",
+    "javascript": "javascript",
+    "typescript": "typescript",
+    "typescriptreact": "html"
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true
+  }
+}

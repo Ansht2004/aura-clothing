@@ -77,15 +77,26 @@ export const Navbar: React.FC = () => {
     }
   };
 
-  const navLinks = [
-    { label: 'All Pieces', shortLabel: 'All', path: '/products' },
-    { label: 'Gowns & Dresses', shortLabel: 'Dresses', path: '/products?category=evening-gowns' },
-    { label: 'Fine Knitwear', shortLabel: 'Knitwear', path: '/products?category=fine-knitwear' },
-    { label: 'Sweaters', shortLabel: 'Sweaters', path: '/products?category=sweaters-cardigans' },
-    { label: 'Formal Shirts', shortLabel: 'Shirts', path: '/products?category=formal-dress-shirts' },
-    { label: 'Tailored Blazers', shortLabel: 'Blazers', path: '/products?category=tailored-blazers' },
-    { label: 'Selvedge Denim', shortLabel: 'Denim', path: '/products?category=selvedge-denim' },
-    { label: 'Leather & Boots', shortLabel: 'Boots', path: '/products?category=leather-boots' },
+  const desktopNavLinks = [
+    { label: 'All', path: '/products' },
+    { label: 'Dresses', path: '/products?category=evening-gowns' },
+    { label: 'Knitwear', path: '/products?category=fine-knitwear' },
+    { label: 'Sweaters', path: '/products?category=sweaters-cardigans' },
+    { label: 'Shirts', path: '/products?category=formal-dress-shirts' },
+    { label: 'Blazers', path: '/products?category=tailored-blazers' },
+    { label: 'Denim', path: '/products?category=selvedge-denim' },
+    { label: 'Boots', path: '/products?category=leather-boots' },
+  ];
+
+  const drawerNavLinks = [
+    { label: 'All Atelier Pieces', path: '/products' },
+    { label: 'Evening Gowns & Dresses', path: '/products?category=evening-gowns' },
+    { label: 'Fine Knitwear', path: '/products?category=fine-knitwear' },
+    { label: 'Sweaters & Cardigans', path: '/products?category=sweaters-cardigans' },
+    { label: 'Formal & Dress Shirts', path: '/products?category=formal-dress-shirts' },
+    { label: 'Tailored Blazers', path: '/products?category=tailored-blazers' },
+    { label: 'Selvedge Denim', path: '/products?category=selvedge-denim' },
+    { label: 'Leather Boots & Shoes', path: '/products?category=leather-boots' },
   ];
 
   // Mouse move handler: snaps directly on first enter, glides smoothly between links
@@ -168,57 +179,58 @@ export const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Desktop Categories Navigation - Liquid Glass Sliding Pill Track */}
-          <nav 
-            ref={navRef}
-            onMouseLeave={handleNavMouseLeave}
-            className="relative hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md px-1.5 xl:px-2.5 py-1.5 rounded-full border border-white/80 dark:border-white/10 shadow-sm shrink min-w-0"
-          >
-            {/* Smooth Liquid Glass Gliding Pill (Active Only While Hovering) */}
-            <div
-              className="absolute top-0 left-0 rounded-full pointer-events-none z-0"
-              style={{
-                transform: `translate3d(${indicator.left}px, ${indicator.top}px, 0)`,
-                width: `${indicator.width}px`,
-                height: `${indicator.height}px`,
-                opacity: indicator.opacity,
-                transition: indicator.isMoving
-                  ? 'transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease'
-                  : 'opacity 0.2s ease',
-              }}
+          {/* Desktop Categories Navigation - Centered Container with Pure Luxury Pills */}
+          <div className="hidden lg:flex items-center justify-center flex-1 min-w-0 px-2 xl:px-4">
+            <nav 
+              ref={navRef}
+              onMouseLeave={handleNavMouseLeave}
+              className="relative flex items-center space-x-0.5 xl:space-x-1 bg-white/60 dark:bg-neutral-900/60 backdrop-blur-md px-1.5 xl:px-2.5 py-1 xl:py-1.5 rounded-full border border-white/80 dark:border-white/10 shadow-sm shrink-0"
             >
-              {/* True Translucent Venetian Glass Lens (Never Solid Opaque) */}
-              <div className="w-full h-full rounded-full bg-white/75 dark:bg-white/[0.08] backdrop-blur-md border border-white/90 dark:border-white/[0.14] shadow-[0_2px_12px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,0.95)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-aura-gold/15 dark:via-aura-gold/[0.12] to-transparent pointer-events-none" />
+              {/* Smooth Liquid Glass Gliding Pill (Active Only While Hovering) */}
+              <div
+                className="absolute top-0 left-0 rounded-full pointer-events-none z-0"
+                style={{
+                  transform: `translate3d(${indicator.left}px, ${indicator.top}px, 0)`,
+                  width: `${indicator.width}px`,
+                  height: `${indicator.height}px`,
+                  opacity: indicator.opacity,
+                  transition: indicator.isMoving
+                    ? 'transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.2s ease'
+                    : 'opacity 0.2s ease',
+                }}
+              >
+                {/* True Translucent Venetian Glass Lens (Never Solid Opaque) */}
+                <div className="w-full h-full rounded-full bg-white/75 dark:bg-white/[0.08] backdrop-blur-md border border-white/90 dark:border-white/[0.14] shadow-[0_2px_12px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,0.95)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-aura-gold/15 dark:via-aura-gold/[0.12] to-transparent pointer-events-none" />
+                </div>
               </div>
-            </div>
 
-            {navLinks.map((link) => {
-              const isHovered = hoveredPath === link.path;
-              const isActive = currentPath === link.path;
+              {desktopNavLinks.map((link) => {
+                const isHovered = hoveredPath === link.path;
+                const isActive = currentPath === link.path;
 
-              return (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onMouseEnter={(e) => handleLinkMouseEnter(e, link.path)}
-                  className={`relative z-10 whitespace-nowrap text-[10px] xl:text-[11px] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.18em] px-2 lg:px-2.5 xl:px-3 py-1 xl:py-1.5 rounded-full transition-colors duration-200 select-none ${
-                    isHovered
-                      ? 'text-neutral-950 dark:text-white font-semibold'
-                      : isActive
-                        ? 'text-aura-gold dark:text-aura-goldLight font-semibold'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
-                  }`}
-                >
-                  <span className="inline 2xl:hidden">{link.shortLabel}</span>
-                  <span className="hidden 2xl:inline">{link.label}</span>
-                  {isActive && !isHovered && (
-                    <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-aura-gold shadow-[0_0_6px_rgba(197,160,89,0.9)]" />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onMouseEnter={(e) => handleLinkMouseEnter(e, link.path)}
+                    className={`relative z-10 whitespace-nowrap text-[10px] xl:text-[11px] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.18em] px-2 xl:px-2.5 py-1 xl:py-1 rounded-full transition-colors duration-200 select-none ${
+                      isHovered
+                        ? 'text-neutral-950 dark:text-white font-semibold'
+                        : isActive
+                          ? 'text-aura-gold dark:text-aura-goldLight font-semibold'
+                          : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && !isHovered && (
+                      <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-aura-gold shadow-[0_0_6px_rgba(197,160,89,0.9)]" />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
 
           {/* Right Action Icons */}
           <div className="flex items-center space-x-1 sm:space-x-2 shrink-0 z-20">
@@ -491,7 +503,7 @@ export const Navbar: React.FC = () => {
               <span className="text-[10px] uppercase tracking-widest text-aura-gold font-bold pt-1 border-b border-white/20 dark:border-white/10 pb-1">
                 Atelier Collections
               </span>
-              {navLinks.map((link) => (
+              {drawerNavLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}

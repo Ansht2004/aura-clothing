@@ -14,13 +14,13 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
     <button
       type="button"
       onClick={toggleTheme}
-      className={`relative inline-flex items-center h-8 w-[58px] shrink-0 rounded-full p-1 transition-all duration-300 focus:outline-none select-none cursor-pointer ${
+      className={`relative inline-flex items-center h-8 w-[58px] shrink-0 rounded-full p-1 transition-all duration-300 focus:outline-none select-none cursor-pointer hover:ring-2 hover:ring-aura-gold/40 ${
         isDark
-          ? 'bg-neutral-900 border border-neutral-700/80 shadow-[inset_0_2px_5px_rgba(0,0,0,0.7)]'
-          : 'bg-neutral-200/90 hover:bg-neutral-200 border border-neutral-300/90 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]'
+          ? 'bg-neutral-900 border border-neutral-700/80 shadow-[inset_0_2px_5px_rgba(0,0,0,0.7)] hover:border-aura-gold/50'
+          : 'bg-neutral-200/90 hover:bg-neutral-200 border border-neutral-300/90 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)] hover:border-neutral-400'
       } ${className}`}
       aria-label={isDark ? 'Switch to Day / Light Mode' : 'Switch to Night / Dark Mode'}
-      title={isDark ? 'Switch to Day Mode (Light)' : 'Switch to Night Mode (Dark)'}
+      title={isDark ? 'Light / Dark Mode: Currently Night (Click for Day)' : 'Light / Dark Mode: Currently Day (Click for Night)'}
     >
       <span className="sr-only">Toggle theme</span>
 

@@ -79,7 +79,7 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: 'All Pieces', shortLabel: 'All', path: '/products' },
-    { label: 'Gowns & Dresses', shortLabel: 'Gowns', path: '/products?category=evening-gowns' },
+    { label: 'Gowns & Dresses', shortLabel: 'Dresses', path: '/products?category=evening-gowns' },
     { label: 'Fine Knitwear', shortLabel: 'Knitwear', path: '/products?category=fine-knitwear' },
     { label: 'Sweaters', shortLabel: 'Sweaters', path: '/products?category=sweaters-cardigans' },
     { label: 'Formal Shirts', shortLabel: 'Shirts', path: '/products?category=formal-dress-shirts' },
@@ -142,11 +142,11 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Main Nav Bar Container */}
-      <div className="w-full max-w-[1536px] mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
-        <div className="flex items-center justify-between h-20 gap-2 sm:gap-3">
+      <div className="w-full max-w-[1600px] mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+        <div className="flex items-center justify-between h-20 gap-2 sm:gap-4">
           
           {/* Mobile Menu Button */}
-          <div className="flex items-center lg:hidden">
+          <div className="flex items-center lg:hidden shrink-0">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="w-10 h-10 rounded-full liquid-pill flex items-center justify-center text-neutral-800 dark:text-neutral-200 focus:outline-none"
@@ -172,7 +172,7 @@ export const Navbar: React.FC = () => {
           <nav 
             ref={navRef}
             onMouseLeave={handleNavMouseLeave}
-            className="relative hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md px-2 xl:px-2.5 py-1.5 rounded-full border border-white/80 dark:border-white/10 shadow-sm shrink-0"
+            className="relative hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md px-1.5 xl:px-2.5 py-1.5 rounded-full border border-white/80 dark:border-white/10 shadow-sm shrink min-w-0"
           >
             {/* Smooth Liquid Glass Gliding Pill (Active Only While Hovering) */}
             <div
@@ -202,7 +202,7 @@ export const Navbar: React.FC = () => {
                   key={link.path}
                   to={link.path}
                   onMouseEnter={(e) => handleLinkMouseEnter(e, link.path)}
-                  className={`relative z-10 whitespace-nowrap text-[10px] xl:text-[11px] font-medium uppercase tracking-[0.16em] xl:tracking-[0.22em] px-2.5 xl:px-3 py-1.5 rounded-full transition-colors duration-200 select-none ${
+                  className={`relative z-10 whitespace-nowrap text-[10px] xl:text-[11px] font-semibold uppercase tracking-[0.14em] xl:tracking-[0.18em] px-2 lg:px-2.5 xl:px-3 py-1 xl:py-1.5 rounded-full transition-colors duration-200 select-none ${
                     isHovered
                       ? 'text-neutral-950 dark:text-white font-semibold'
                       : isActive
@@ -210,8 +210,8 @@ export const Navbar: React.FC = () => {
                         : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
                   }`}
                 >
-                  <span className="inline xl:hidden">{link.shortLabel}</span>
-                  <span className="hidden xl:inline">{link.label}</span>
+                  <span className="inline 2xl:hidden">{link.shortLabel}</span>
+                  <span className="hidden 2xl:inline">{link.label}</span>
                   {isActive && !isHovered && (
                     <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-aura-gold shadow-[0_0_6px_rgba(197,160,89,0.9)]" />
                   )}
@@ -221,22 +221,24 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right Action Icons */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+          <div className="flex items-center space-x-1 sm:space-x-2 shrink-0 z-20">
             
             {/* Search Trigger */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="w-9 h-9 rounded-full flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10 border border-transparent hover:border-white/60 dark:hover:border-white/10 transition-all"
+              className="w-9 h-9 rounded-full flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10 border border-transparent hover:border-white/60 dark:hover:border-white/10 transition-all shrink-0"
               aria-label="Search"
+              title="Search collections"
             >
               <Search size={18} strokeWidth={1.75} />
             </button>
 
-            {/* Wishlist Link */}
+            {/* Wishlist Link (Compact on mobile) */}
             <Link
               to="/wishlist"
-              className="relative w-9 h-9 rounded-full flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10 border border-transparent hover:border-white/60 dark:hover:border-white/10 transition-all"
+              className="relative w-9 h-9 rounded-full hidden sm:flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10 border border-transparent hover:border-white/60 dark:hover:border-white/10 transition-all shrink-0"
               aria-label="Wishlist"
+              title="Saved Wishlist"
             >
               <Heart size={18} strokeWidth={1.75} />
               {wishlist.length > 0 && (
@@ -249,8 +251,9 @@ export const Navbar: React.FC = () => {
             {/* Shopping Cart Link */}
             <Link
               to="/cart"
-              className="relative w-9 h-9 rounded-full flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10 border border-transparent hover:border-white/60 dark:hover:border-white/10 transition-all"
+              className="relative w-9 h-9 rounded-full flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10 border border-transparent hover:border-white/60 dark:hover:border-white/10 transition-all shrink-0"
               aria-label="Shopping Cart"
+              title="Atelier Cart"
             >
               <ShoppingBag size={18} strokeWidth={1.75} />
               {summary.item_count > 0 && (
@@ -262,11 +265,12 @@ export const Navbar: React.FC = () => {
 
             {/* Notifications Dropdown */}
             {isAuthenticated && (
-              <div className="relative" ref={notifRef}>
+              <div className="relative shrink-0" ref={notifRef}>
                 <button
                   onClick={() => setNotifDropdownOpen(!notifDropdownOpen)}
-                  className="relative w-9 h-9 rounded-full flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10 border border-transparent hover:border-white/60 dark:hover:border-white/10 transition-all"
+                  className="relative w-9 h-9 rounded-full flex items-center justify-center text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/10 border border-transparent hover:border-white/60 dark:hover:border-white/10 transition-all shrink-0"
                   aria-label="Notifications"
+                  title="Notifications"
                 >
                   <Bell size={18} strokeWidth={1.75} />
                   {unreadCount > 0 && (
@@ -332,30 +336,31 @@ export const Navbar: React.FC = () => {
               </div>
             )}
 
-            {/* User Account Menu - Liquid Glass Pill */}
-            <div className="relative" ref={userRef}>
+            {/* User Account Menu - Prominent Gold Glass Pill */}
+            <div className="relative shrink-0" ref={userRef}>
               {isAuthenticated ? (
                 <div>
                   <button
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
-                    className="flex items-center gap-2 pl-1 pr-2 py-1 rounded-full liquid-pill text-xs font-medium focus:outline-none"
+                    className="flex items-center gap-1.5 sm:gap-2 pl-1 pr-2 sm:pr-2.5 py-1 rounded-full bg-white/70 dark:bg-neutral-900/80 hover:bg-white dark:hover:bg-neutral-800 border border-neutral-300/80 dark:border-white/15 shadow-sm transition-all focus:outline-none select-none shrink-0"
+                    title={`Signed in as ${user?.full_name}`}
                   >
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-aura-gold to-aura-goldDark text-neutral-950 flex items-center justify-center text-xs font-bold shadow-sm">
-                      {user?.full_name?.charAt(0) || 'U'}
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-aura-gold to-aura-goldLight text-neutral-950 flex items-center justify-center text-xs font-bold shadow-sm shrink-0">
+                      {user?.full_name?.charAt(0).toUpperCase() || 'U'}
                     </div>
-                    <span className="hidden lg:inline font-semibold text-neutral-800 dark:text-neutral-200 text-[11px] max-w-[80px] truncate">
+                    <span className="hidden sm:inline font-semibold text-neutral-800 dark:text-neutral-200 text-[11px] max-w-[85px] truncate">
                       {user?.full_name?.split(' ')[0]}
                     </span>
-                    <ChevronDown size={13} className="text-neutral-400" />
+                    <ChevronDown size={13} className="text-neutral-400 shrink-0" />
                   </button>
 
                   {userMenuOpen && (
-                    <div className="absolute right-0 mt-3 w-60 liquid-glass rounded-2xl shadow-2xl py-3 z-50">
+                    <div className="absolute right-0 mt-3 w-60 liquid-glass rounded-2xl shadow-2xl py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                       <div className="px-4 py-2 border-b border-neutral-200/50 dark:border-neutral-800/60">
                         <p className="text-xs font-bold text-neutral-900 dark:text-neutral-100 truncate">{user?.full_name}</p>
                         <p className="text-[10px] text-neutral-400 truncate">{user?.email}</p>
                         <span className="inline-block mt-1 text-[9px] uppercase tracking-wider font-mono text-aura-gold font-bold">
-                          {user?.customer_code || 'PATRON'}
+                          {isAdmin ? 'ATELIER ADMIN' : user?.customer_code || 'PATRON'}
                         </span>
                       </div>
 
@@ -401,16 +406,17 @@ export const Navbar: React.FC = () => {
               ) : (
                 <Link
                   to="/auth"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full liquid-pill text-xs uppercase tracking-wider font-bold text-neutral-800 dark:text-neutral-200 hover:text-aura-gold transition-all"
+                  className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-gradient-to-r from-aura-gold/20 via-aura-goldLight/20 to-aura-gold/20 hover:from-aura-gold/35 hover:to-aura-goldLight/35 text-neutral-900 dark:text-neutral-100 border border-aura-gold/50 hover:border-aura-gold shadow-sm transition-all duration-200 select-none shrink-0 group"
+                  title="Sign in to your Atelier Account"
                 >
-                  <UserIcon size={14} strokeWidth={2} />
-                  <span>Sign In</span>
+                  <UserIcon size={14} className="text-aura-gold group-hover:scale-110 transition-transform" strokeWidth={2.2} />
+                  <span className="text-[11px] sm:text-xs uppercase tracking-wider font-bold">Sign In</span>
                 </Link>
               )}
             </div>
 
             {/* Top Right Dark / Light Mode Switch */}
-            <div className="pl-1.5 sm:pl-2.5 ml-0.5 sm:ml-1 border-l border-neutral-300/80 dark:border-neutral-700/80 flex items-center shrink-0">
+            <div className="pl-1 sm:pl-2 ml-0.5 sm:ml-1 border-l border-neutral-300 dark:border-neutral-700/80 flex items-center shrink-0">
               <ThemeToggle />
             </div>
 
@@ -446,7 +452,43 @@ export const Navbar: React.FC = () => {
         <div className="lg:hidden fixed inset-0 top-[112px] bg-black/60 z-40 backdrop-blur-md animate-in fade-in">
           <div className="liquid-glass w-4/5 max-w-sm h-full shadow-2xl p-6 overflow-y-auto border-r border-white/30 dark:border-white/10 rounded-r-3xl">
             <div className="flex flex-col space-y-4">
-              <span className="text-[10px] uppercase tracking-widest text-aura-gold font-bold border-b border-white/20 dark:border-white/10 pb-2">
+              
+              {/* User Profile / Auth Section at top of mobile drawer */}
+              {isAuthenticated ? (
+                <div className="pb-3 border-b border-white/20 dark:border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-aura-gold to-aura-goldLight text-neutral-950 flex items-center justify-center text-sm font-bold shadow-sm">
+                      {user?.full_name?.charAt(0).toUpperCase() || 'U'}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">{user?.full_name}</p>
+                      <span className="text-[10px] text-aura-gold uppercase font-mono tracking-wider font-semibold">
+                        {isAdmin ? 'Atelier Administrator' : 'Client Patron'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  to="/auth"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full text-center py-2.5 bg-gradient-to-r from-aura-gold to-aura-goldLight text-neutral-950 text-xs uppercase tracking-widest font-bold rounded-full shadow-md flex items-center justify-center gap-2"
+                >
+                  <UserIcon size={15} />
+                  <span>Sign In / Atelier Account</span>
+                </Link>
+              )}
+
+              {/* Theme Toggle in Mobile Drawer */}
+              <div className="py-2.5 px-3 rounded-2xl bg-white/40 dark:bg-white/5 border border-white/30 dark:border-white/10 flex items-center justify-between">
+                <span className="text-xs uppercase tracking-wider font-semibold text-neutral-700 dark:text-neutral-300">
+                  Day / Night Mode
+                </span>
+                <ThemeToggle />
+              </div>
+
+              {/* Atelier Collections Header */}
+              <span className="text-[10px] uppercase tracking-widest text-aura-gold font-bold pt-1 border-b border-white/20 dark:border-white/10 pb-1">
                 Atelier Collections
               </span>
               {navLinks.map((link) => (
@@ -460,33 +502,37 @@ export const Navbar: React.FC = () => {
                 </Link>
               ))}
 
-              <div className="pt-4 border-t border-white/20 dark:border-white/10 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wider font-semibold text-neutral-600 dark:text-neutral-400">
-                  Theme Appearance
-                </span>
-                <ThemeToggle />
-              </div>
-
-              <div className="pt-4 border-t border-white/20 dark:border-white/10 flex flex-col space-y-3">
-                {isAuthenticated ? (
+              {/* Additional Mobile Navigation Links */}
+              <div className="pt-3 border-t border-white/20 dark:border-white/10 flex flex-col space-y-2.5">
+                <Link
+                  to="/wishlist"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300 hover:text-aura-gold py-1"
+                >
+                  <span className="flex items-center gap-2"><Heart size={15} /> Wishlist</span>
+                  {wishlist.length > 0 && (
+                    <span className="px-2 py-0.5 rounded-full bg-aura-gold/20 text-aura-gold text-[10px] font-bold">
+                      {wishlist.length}
+                    </span>
+                  )}
+                </Link>
+                {isAuthenticated && (
                   <>
                     {isAdmin && (
-                      <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-sm font-semibold text-aura-gold">
-                        <Shield size={16} /> Admin Console
+                      <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-aura-gold py-1">
+                        <Shield size={15} /> Admin Console
                       </Link>
                     )}
-                    <Link to="/profile" onClick={() => setMobileMenuOpen(false)} className="text-sm text-neutral-700 dark:text-neutral-300">My Profile</Link>
-                    <Link to="/orders" onClick={() => setMobileMenuOpen(false)} className="text-sm text-neutral-700 dark:text-neutral-300">Order History</Link>
-                    <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="text-sm text-red-500 text-left">Sign Out</button>
+                    <Link to="/profile" onClick={() => setMobileMenuOpen(false)} className="text-xs uppercase tracking-wider text-neutral-700 dark:text-neutral-300 py-1">
+                      Client Profile & Addresses
+                    </Link>
+                    <Link to="/orders" onClick={() => setMobileMenuOpen(false)} className="text-xs uppercase tracking-wider text-neutral-700 dark:text-neutral-300 py-1">
+                      Order History & Returns
+                    </Link>
+                    <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="text-xs uppercase tracking-wider text-red-500 text-left py-1 flex items-center gap-2">
+                      <LogOut size={14} /> Sign Out
+                    </button>
                   </>
-                ) : (
-                  <Link
-                    to="/auth"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="w-full text-center py-3 liquid-btn-gold text-neutral-950 text-xs uppercase tracking-widest font-bold rounded-full shadow-lg"
-                  >
-                    Sign In / Register
-                  </Link>
                 )}
               </div>
             </div>

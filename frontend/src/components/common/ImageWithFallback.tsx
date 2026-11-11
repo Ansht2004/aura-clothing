@@ -21,25 +21,12 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   const [hasError, setHasError] = useState<boolean>(!src);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
-  // Sync state if src changes
+  // Sync state when src prop updates
   React.useEffect(() => {
     if (src) {
       setImgSrc(src);
       setHasError(false);
       setIsLoaded(false);
-
-      // Timeout safety: if image doesn't load in 4 seconds (e.g. slow network or CDN block), trigger fallback
-      const timer = setTimeout(() => {
-        setIsLoaded((loaded) => {
-          if (!loaded) {
-            setHasError(true);
-            setImgSrc(fallbackSrc);
-          }
-          return loaded;
-        });
-      }, 4000);
-
-      return () => clearTimeout(timer);
     } else {
       setImgSrc(fallbackSrc);
       setHasError(true);
@@ -54,25 +41,33 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   };
 
   return (
-    <div className={`relative overflow-hidden bg-neutral-100 ${className}`}>
+    <div className={`relative overflow-hidden bg-neutral-100/80 dark:bg-neutral-900/80 ${className}`}>
+      {/* Loading Skeleton Shimmer */}
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-gradient-to-r from-neutral-200/50 via-neutral-100/70 to-neutral-200/50 dark:from-neutral-800/40 dark:via-neutral-700/50 dark:to-neutral-800/40 animate-pulse pointer-events-none" />
+      )}
+
       <img
         {...props}
         src={imgSrc}
         alt={alt}
         referrerPolicy="no-referrer"
+        loading="lazy"
         decoding="async"
         onLoad={() => setIsLoaded(true)}
         onError={handleError}
-        className="w-full h-full object-cover object-center"
+        className={`w-full h-full object-cover object-center transition-opacity duration-500 ${
+          isLoaded || hasError ? 'opacity-100' : 'opacity-0'
+        }`}
       />
 
       {hasError && categoryName && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-aura-50/80 text-center pointer-events-none">
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-4 bg-aura-50/90 dark:bg-neutral-900/90 text-center pointer-events-none">
           <Shirt size={28} className="text-aura-gold mb-2 opacity-60" />
-          <span className="text-xs font-serif font-bold tracking-wider text-neutral-800 uppercase">
+          <span className="text-xs font-serif font-bold tracking-wider text-neutral-800 dark:text-neutral-200 uppercase">
             {categoryName}
           </span>
-          <span className="text-[10px] text-neutral-500 tracking-widest uppercase mt-0.5">
+          <span className="text-[10px] text-neutral-500 dark:text-neutral-400 tracking-widest uppercase mt-0.5">
             Aura Haute Collection
           </span>
         </div>

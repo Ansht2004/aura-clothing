@@ -8,9 +8,9 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     ...(options.headers || {})
   };
 
-  // 6-second timeout to prevent requests from hanging indefinitely
+  // 35-second timeout to accommodate cloud server cold starts & AI inference
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 6000);
+  const timeoutId = setTimeout(() => controller.abort(), 35000);
 
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {

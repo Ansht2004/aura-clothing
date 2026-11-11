@@ -301,7 +301,7 @@ export const ProductListPage: React.FC = () => {
         <div className="liquid-glass border border-amber-500/40 text-neutral-900 dark:text-neutral-100 px-5 py-3.5 rounded-2xl shadow-lg flex items-center justify-between">
           <span className="text-xs font-semibold flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-            Backend connection offline. Re-establishing link on port 5000...
+            Atelier backend service connecting... (waking up cloud server)
           </span>
           <button onClick={() => window.location.reload()} className="px-4 py-1.5 liquid-btn-gold text-neutral-950 rounded-full text-xs font-bold">
             Retry Connection

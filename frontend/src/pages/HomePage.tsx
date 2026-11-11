@@ -42,6 +42,15 @@ export const HomePage: React.FC = () => {
     loadHomeData();
   }, []);
 
+  // Auto-retry connection every 5 seconds if server is waking up
+  useEffect(() => {
+    if (!connectionError) return;
+    const retryTimer = setTimeout(() => {
+      loadHomeData();
+    }, 5000);
+    return () => clearTimeout(retryTimer);
+  }, [connectionError]);
+
   const handleCopyCoupon = (code: string) => {
     navigator.clipboard.writeText(code);
     setCopiedCoupon(true);
@@ -61,7 +70,7 @@ export const HomePage: React.FC = () => {
           <div className="liquid-glass border border-amber-500/40 text-neutral-900 dark:text-neutral-100 px-5 py-3.5 rounded-2xl shadow-lg flex items-center justify-between">
             <span className="text-xs font-semibold flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-              Backend server on port 5000 is reconnecting...
+              Atelier backend service connecting... (waking up cloud server)
             </span>
             <button 
               onClick={loadHomeData} 

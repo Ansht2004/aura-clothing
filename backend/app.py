@@ -86,6 +86,26 @@ def create_app(config_name=None):
         except Exception as e:
             print(f"[ADMIN BOOTSTRAP] Notice: {e}")
 
+        # Automated Price Normalization: Ensures all products have accurate luxury INR pricing (min ₹2,499)
+        try:
+            from models import Product
+            low_priced = Product.query.filter(Product.base_price < 500).all()
+            if low_priced:
+                print(f"[PRICE REPAIR] Upgrading {len(low_priced)} legacy products to luxury Indian Rupees (INR)...")
+                for p in low_priced:
+                    inr_base = max(2499.0, float(round((p.base_price * 85.0) / 100.0) * 100 - 1))
+                    p.base_price = inr_base
+                    if p.discount_price and p.discount_price < 500:
+                        inr_disc = max(1999.0, float(round((p.discount_price * 85.0) / 100.0) * 100 - 1))
+                        p.discount_price = min(inr_base - 500.0, inr_disc)
+                    for v in p.variants:
+                        if v.price_adjustment and abs(v.price_adjustment) < 100:
+                            v.price_adjustment = float(round(v.price_adjustment * 85.0))
+                db.session.commit()
+                print("[PRICE REPAIR] Complete! All products now display accurate Indian Rupee luxury pricing.")
+        except Exception as e:
+            print(f"[PRICE REPAIR] Notice: {e}")
+
     # Enable CORS for frontend applications
     CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 

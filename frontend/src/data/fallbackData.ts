@@ -570,12 +570,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 31,
     "total_stock": 170,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1760893107461-baee57948240?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 3,
         "product_id": 3,
-        "image_url": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1760893107461-baee57948240?auto=format&fit=crop&w=1000&q=80",
         "color": "Obsidian Black",
         "is_primary": true,
         "display_order": 0
@@ -1222,12 +1222,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 35,
     "total_stock": 210,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1765871421513-452fe03d15cc?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 7,
         "product_id": 7,
-        "image_url": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1765871421513-452fe03d15cc?auto=format&fit=crop&w=1000&q=80",
         "color": "Forest Olive",
         "is_primary": true,
         "display_order": 0
@@ -1385,12 +1385,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 36,
     "total_stock": 130,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1547697933-66bcb20f114a?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 8,
         "product_id": 8,
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1547697933-66bcb20f114a?auto=format&fit=crop&w=1000&q=80",
         "color": "Obsidian Black",
         "is_primary": true,
         "display_order": 0
@@ -1548,12 +1548,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 37,
     "total_stock": 230,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1765229280917-a49e8b80d067?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 9,
         "product_id": 9,
-        "image_url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1765229280917-a49e8b80d067?auto=format&fit=crop&w=1000&q=80",
         "color": "Camel Sand",
         "is_primary": true,
         "display_order": 0
@@ -1711,12 +1711,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 38,
     "total_stock": 150,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1763959952596-1512ebea8eb1?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 10,
         "product_id": 10,
-        "image_url": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1763959952596-1512ebea8eb1?auto=format&fit=crop&w=1000&q=80",
         "color": "Burgundy Wine",
         "is_primary": true,
         "display_order": 0
@@ -2363,12 +2363,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 42,
     "total_stock": 210,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1785354745683-cb6a0b6057a4?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 14,
         "product_id": 14,
-        "image_url": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1785354745683-cb6a0b6057a4?auto=format&fit=crop&w=1000&q=80",
         "color": "Camel Sand",
         "is_primary": true,
         "display_order": 0
@@ -2526,12 +2526,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 28,
     "total_stock": 130,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1622079401116-8317808352d9?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 15,
         "product_id": 15,
-        "image_url": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1622079401116-8317808352d9?auto=format&fit=crop&w=1000&q=80",
         "color": "Burgundy Wine",
         "is_primary": true,
         "display_order": 0
@@ -2689,12 +2689,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 29,
     "total_stock": 230,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1765229288526-5ab32d61d73b?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 16,
         "product_id": 16,
-        "image_url": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1765229288526-5ab32d61d73b?auto=format&fit=crop&w=1000&q=80",
         "color": "Midnight Navy",
         "is_primary": true,
         "display_order": 0
@@ -2852,12 +2852,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 30,
     "total_stock": 150,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1765229278111-75e6f77ddfde?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 17,
         "product_id": 17,
-        "image_url": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1765229278111-75e6f77ddfde?auto=format&fit=crop&w=1000&q=80",
         "color": "Forest Olive",
         "is_primary": true,
         "display_order": 0
@@ -3015,12 +3015,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 31,
     "total_stock": 250,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1791648274558-b93c6e2c783a?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 18,
         "product_id": 18,
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1791648274558-b93c6e2c783a?auto=format&fit=crop&w=1000&q=80",
         "color": "Obsidian Black",
         "is_primary": true,
         "display_order": 0
@@ -3178,12 +3178,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 32,
     "total_stock": 170,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1765229279658-7335ee3cdaf5?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 19,
         "product_id": 19,
-        "image_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1765229279658-7335ee3cdaf5?auto=format&fit=crop&w=1000&q=80",
         "color": "Camel Sand",
         "is_primary": true,
         "display_order": 0
@@ -3341,12 +3341,12 @@ export const FALLBACK_PRODUCTS: Product[] = [
     "sales_count": 33,
     "total_stock": 270,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1779400204294-6e62f17401d8?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 20,
         "product_id": 20,
-        "image_url": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1779400204294-6e62f17401d8?auto=format&fit=crop&w=1000&q=80",
         "color": "Burgundy Wine",
         "is_primary": true,
         "display_order": 0
@@ -39693,12 +39693,12 @@ export const FALLBACK_FEATURED: Product[] = [
     "sales_count": 31,
     "total_stock": 170,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1760893107461-baee57948240?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 3,
         "product_id": 3,
-        "image_url": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1760893107461-baee57948240?auto=format&fit=crop&w=1000&q=80",
         "color": "Obsidian Black",
         "is_primary": true,
         "display_order": 0
@@ -41489,12 +41489,12 @@ export const FALLBACK_TRENDING: Product[] = [
     "sales_count": 38,
     "total_stock": 150,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1763959952596-1512ebea8eb1?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 10,
         "product_id": 10,
-        "image_url": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1763959952596-1512ebea8eb1?auto=format&fit=crop&w=1000&q=80",
         "color": "Burgundy Wine",
         "is_primary": true,
         "display_order": 0
@@ -41652,12 +41652,12 @@ export const FALLBACK_TRENDING: Product[] = [
     "sales_count": 28,
     "total_stock": 130,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1622079401116-8317808352d9?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 15,
         "product_id": 15,
-        "image_url": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1622079401116-8317808352d9?auto=format&fit=crop&w=1000&q=80",
         "color": "Burgundy Wine",
         "is_primary": true,
         "display_order": 0
@@ -41815,12 +41815,12 @@ export const FALLBACK_TRENDING: Product[] = [
     "sales_count": 33,
     "total_stock": 270,
     "in_stock": true,
-    "primary_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80",
+    "primary_image": "https://images.unsplash.com/photo-1779400204294-6e62f17401d8?auto=format&fit=crop&w=1000&q=80",
     "images": [
       {
         "id": 20,
         "product_id": 20,
-        "image_url": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80",
+        "image_url": "https://images.unsplash.com/photo-1779400204294-6e62f17401d8?auto=format&fit=crop&w=1000&q=80",
         "color": "Burgundy Wine",
         "is_primary": true,
         "display_order": 0

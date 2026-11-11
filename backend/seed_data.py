@@ -395,7 +395,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.9,
         "review_count": 25,
         "sales_count": 33,
-        "primary_image": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1760893107461-baee57948240?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -795,7 +795,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.9,
         "review_count": 42,
         "sales_count": 37,
-        "primary_image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1765871421513-452fe03d15cc?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -895,7 +895,7 @@ PRODUCTS_DATA = [
         "average_rating": 5.0,
         "review_count": 48,
         "sales_count": 38,
-        "primary_image": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1547697933-66bcb20f114a?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -995,7 +995,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.7,
         "review_count": 54,
         "sales_count": 39,
-        "primary_image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1765229280917-a49e8b80d067?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -1095,7 +1095,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.8,
         "review_count": 60,
         "sales_count": 40,
-        "primary_image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1763959952596-1512ebea8eb1?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -1495,7 +1495,7 @@ PRODUCTS_DATA = [
         "average_rating": 5.0,
         "review_count": 27,
         "sales_count": 44,
-        "primary_image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1785354745683-cb6a0b6057a4?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -1595,7 +1595,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.7,
         "review_count": 33,
         "sales_count": 45,
-        "primary_image": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1622079401116-8317808352d9?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -1695,7 +1695,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.8,
         "review_count": 39,
         "sales_count": 46,
-        "primary_image": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1765229288526-5ab32d61d73b?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -1795,7 +1795,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.9,
         "review_count": 45,
         "sales_count": 47,
-        "primary_image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1765229278111-75e6f77ddfde?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -1895,7 +1895,7 @@ PRODUCTS_DATA = [
         "average_rating": 5.0,
         "review_count": 51,
         "sales_count": 48,
-        "primary_image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1791648274558-b93c6e2c783a?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -1995,7 +1995,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.7,
         "review_count": 57,
         "sales_count": 49,
-        "primary_image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1765229279658-7335ee3cdaf5?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",
@@ -2095,7 +2095,7 @@ PRODUCTS_DATA = [
         "average_rating": 4.8,
         "review_count": 63,
         "sales_count": 30,
-        "primary_image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80",
+        "primary_image": "https://images.unsplash.com/photo-1779400204294-6e62f17401d8?auto=format&fit=crop&w=1000&q=80",
         "variants": [
             {
                 "size": "XS",

@@ -56,6 +56,36 @@ def create_app(config_name=None):
         except Exception as e:
             print(f"[SCHEMA INIT] Notice: {e}")
 
+        # Ensure sole administrator tanwaransh46@gmail.com is always bootstrapped
+        try:
+            from models import User
+            admin_user = User.query.filter_by(email='tanwaransh46@gmail.com').first()
+            if not admin_user:
+                admin_user = User(
+                    email='tanwaransh46@gmail.com',
+                    full_name='Ansh Tanwar',
+                    phone='+91 98765 43210',
+                    role='admin',
+                    is_active=True
+                )
+                admin_user.set_password('Tanwar@12')
+                db.session.add(admin_user)
+                db.session.commit()
+                print("[ADMIN BOOTSTRAP] Initialized sole administrator: tanwaransh46@gmail.com")
+            else:
+                updated = False
+                if admin_user.role != 'admin':
+                    admin_user.role = 'admin'
+                    updated = True
+                if not admin_user.is_active:
+                    admin_user.is_active = True
+                    updated = True
+                if updated:
+                    db.session.commit()
+                    print("[ADMIN BOOTSTRAP] Verified & upgraded sole administrator privileges.")
+        except Exception as e:
+            print(f"[ADMIN BOOTSTRAP] Notice: {e}")
+
     # Enable CORS for frontend applications
     CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
-import { Shield, AlertCircle, ArrowRight } from 'lucide-react';
+import { Shield, AlertCircle, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export const AuthPage: React.FC = () => {
@@ -16,6 +16,7 @@ export const AuthPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -125,17 +126,41 @@ export const AuthPage: React.FC = () => {
           </div>
 
           <div>
-            <label className="text-[11px] uppercase tracking-wider font-bold text-neutral-700 dark:text-neutral-300 block mb-1">
-              Password *
-            </label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="w-full px-4 py-2.5 liquid-input text-neutral-900 dark:text-white rounded-2xl"
-            />
+            <div className="flex items-center justify-between mb-1">
+              <label className="text-[11px] uppercase tracking-wider font-bold text-neutral-700 dark:text-neutral-300">
+                Password *
+              </label>
+              {mode === 'login' && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEmail('tanwaransh46@gmail.com');
+                    setPassword('Tanwar@12');
+                  }}
+                  className="text-[10px] text-aura-gold hover:underline font-semibold"
+                >
+                  Fill Admin Credentials
+                </button>
+              )}
+            </div>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="w-full px-4 py-2.5 pr-10 liquid-input text-neutral-900 dark:text-white rounded-2xl"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 transition-colors"
+                title={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+              </button>
+            </div>
             {mode === 'register' && (
               <span className="text-[10px] text-neutral-400 dark:text-neutral-500 mt-1 block">
                 Minimum 6 characters with letters and numbers recommended.

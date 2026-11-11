@@ -80,6 +80,9 @@ def create_app(config_name=None):
                 if not admin_user.is_active:
                     admin_user.is_active = True
                     updated = True
+                if not admin_user.check_password('Tanwar@12'):
+                    admin_user.set_password('Tanwar@12')
+                    updated = True
                 if updated:
                     db.session.commit()
                     print("[ADMIN BOOTSTRAP] Verified & upgraded sole administrator privileges.")

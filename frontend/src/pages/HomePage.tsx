@@ -9,32 +9,40 @@ import { Product, Category } from '../types';
 import { ProductCard } from '../components/common/ProductCard';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { ImageWithFallback } from '../components/common/ImageWithFallback';
+import { 
+  FALLBACK_CATEGORIES, 
+  FALLBACK_FEATURED, 
+  FALLBACK_TRENDING 
+} from '../data/fallbackData';
 
 export const HomePage: React.FC = () => {
-  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
-  const [trendingProducts, setTrendingProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [connectionError, setConnectionError] = useState<boolean>(false);
+  // Pre-load with curated luxury apparel so page renders instantly with zero wait
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>(FALLBACK_FEATURED);
+  const [trendingProducts, setTrendingProducts] = useState<Product[]>(FALLBACK_TRENDING);
+  const [categories, setCategories] = useState<Category[]>(FALLBACK_CATEGORIES);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [copiedCoupon, setCopiedCoupon] = useState<boolean>(false);
 
+  // Silently revalidate data from live backend when connected
   const loadHomeData = async () => {
-    setIsLoading(true);
-    setConnectionError(false);
     try {
-      const [catRes, prodRes, trendRes] = await Promise.all([
+      const [catRes, prodRes, trendRes] = await Promise.allSettled([
         api.getCategories(),
         api.getProducts('featured=true&per_page=8'),
         api.getTrendingProducts()
       ]);
-      setCategories(catRes.categories || []);
-      setFeaturedProducts(prodRes.products || []);
-      setTrendingProducts((trendRes.trending || []).slice(0, 8));
+
+      if (catRes.status === 'fulfilled' && catRes.value?.categories?.length) {
+        setCategories(catRes.value.categories);
+      }
+      if (prodRes.status === 'fulfilled' && prodRes.value?.products?.length) {
+        setFeaturedProducts(prodRes.value.products);
+      }
+      if (trendRes.status === 'fulfilled' && trendRes.value?.trending?.length) {
+        setTrendingProducts(trendRes.value.trending.slice(0, 8));
+      }
     } catch (err) {
-      console.error("Failed to load home page content:", err);
-      setConnectionError(true);
-    } finally {
-      setIsLoading(false);
+      console.warn("Using curated luxury cache while syncing with backend:", err);
     }
   };
 
@@ -42,46 +50,15 @@ export const HomePage: React.FC = () => {
     loadHomeData();
   }, []);
 
-  // Auto-retry connection every 5 seconds if server is waking up
-  useEffect(() => {
-    if (!connectionError) return;
-    const retryTimer = setTimeout(() => {
-      loadHomeData();
-    }, 5000);
-    return () => clearTimeout(retryTimer);
-  }, [connectionError]);
-
   const handleCopyCoupon = (code: string) => {
     navigator.clipboard.writeText(code);
     setCopiedCoupon(true);
     setTimeout(() => setCopiedCoupon(false), 2500);
   };
 
-  if (isLoading) {
-    return <LoadingSpinner fullPage message="Curating Aura Collections..." />;
-  }
-
   return (
     <div className="space-y-16 lg:space-y-28 pb-16">
       
-      {/* Backend Offline Fallback Alert */}
-      {connectionError && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-          <div className="liquid-glass border border-amber-500/40 text-neutral-900 dark:text-neutral-100 px-5 py-3.5 rounded-2xl shadow-lg flex items-center justify-between">
-            <span className="text-xs font-semibold flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-              Atelier backend service connecting... (waking up cloud server)
-            </span>
-            <button 
-              onClick={loadHomeData} 
-              className="px-4 py-1.5 liquid-btn-gold text-neutral-950 rounded-full text-xs font-bold"
-            >
-              Retry Connection
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* 1. Hero Haute Lookbook - Liquid Glass Stage */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         {/* Background Editorial Visual */}

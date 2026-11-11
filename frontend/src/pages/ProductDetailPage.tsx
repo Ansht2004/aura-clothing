@@ -14,6 +14,7 @@ import { formatPrice } from '../utils/formatters';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { useAuth } from '../context/AuthContext';
+import { FALLBACK_PRODUCTS } from '../data/fallbackData';
 
 export const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -98,7 +99,16 @@ export const ProductDetailPage: React.FC = () => {
         }
 
       } catch (err) {
-        console.error("Failed to load product details:", err);
+        console.warn("Using offline luxury cache for product:", err);
+        const fallback = FALLBACK_PRODUCTS.find(p => p.id === Number(id));
+        if (fallback) {
+          setProduct(fallback);
+          setSelectedImage(fallback.primary_image);
+          if (fallback.variants && fallback.variants.length > 0) {
+            setSelectedSize(fallback.variants[0].size);
+            setSelectedColor(fallback.variants[0].color);
+          }
+        }
       } finally {
         setIsLoading(false);
       }

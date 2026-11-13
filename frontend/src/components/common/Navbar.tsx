@@ -9,6 +9,7 @@ import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
 import { useNotifications } from '../../context/NotificationContext';
 import { ThemeToggle } from './ThemeToggle';
+import { AuraLogo } from './AuraLogo';
 
 export const Navbar: React.FC = () => {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
@@ -90,13 +91,18 @@ export const Navbar: React.FC = () => {
 
   const drawerNavLinks = [
     { label: 'All Atelier Pieces', path: '/products' },
-    { label: 'Evening Gowns & Dresses', path: '/products?category=evening-gowns' },
+    { label: 'Evening Gowns & Gala Dresses', path: '/products?category=evening-gowns' },
+    { label: 'Cocktail & Silk Dresses', path: '/products?category=cocktail-day-dresses' },
     { label: 'Fine Knitwear', path: '/products?category=fine-knitwear' },
     { label: 'Sweaters & Cardigans', path: '/products?category=sweaters-cardigans' },
     { label: 'Formal & Dress Shirts', path: '/products?category=formal-dress-shirts' },
-    { label: 'Tailored Blazers', path: '/products?category=tailored-blazers' },
+    { label: 'Luxury Polos & Resort Shirts', path: '/products?category=luxury-polos-shirts' },
+    { label: 'Tailored Blazers & Sport Coats', path: '/products?category=tailored-blazers' },
+    { label: 'Luxury Overcoats & Trench', path: '/products?category=overcoats-trench' },
     { label: 'Selvedge Denim', path: '/products?category=selvedge-denim' },
-    { label: 'Leather Boots & Shoes', path: '/products?category=leather-boots' },
+    { label: 'Tailored Dress Trousers', path: '/products?category=tailored-trousers' },
+    { label: 'Artisanal Leather Boots', path: '/products?category=leather-boots' },
+    { label: 'Fine Accessories & Silk', path: '/products?category=accessories-silk' },
   ];
 
   // Mouse move handler: snaps directly on first enter, glides smoothly between links
@@ -143,7 +149,8 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 liquid-navbar transition-all duration-300">
+    <>
+      <header className="sticky top-0 z-50 liquid-navbar transition-all duration-300">
       {/* Top Announcement Bar - Liquid Glass Banner */}
       <div className="bg-[#151413] dark:bg-black/95 backdrop-blur-md text-neutral-200 text-[10.5px] py-1.5 px-4 text-center font-medium tracking-[0.18em] uppercase border-b border-white/10 dark:border-aura-gold/20 flex items-center justify-center gap-2 shadow-sm">
         <Sparkles size={11} className="text-aura-gold animate-pulse shrink-0" />
@@ -167,16 +174,9 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Brand Logo with Liquid Shimmer */}
+          {/* Brand Logo with Brilliant Haute Crest & Molten Gold Aura */}
           <div className="shrink-0 flex items-center">
-            <Link to="/" className="flex flex-col group select-none">
-              <span className="font-serif text-2xl lg:text-3xl font-medium tracking-[0.32em] text-neutral-950 dark:text-white group-hover:text-aura-gold transition-colors duration-300">
-                AURA
-              </span>
-              <span className="text-[8px] uppercase tracking-[0.38em] text-neutral-400 dark:text-neutral-500 font-medium -mt-0.5 group-hover:text-aura-goldLight transition-colors whitespace-nowrap">
-                HAUTE ATELIER
-              </span>
-            </Link>
+            <AuraLogo variant="navbar" />
           </div>
 
           {/* Desktop Categories Navigation - Centered Container with Pure Luxury Pills */}
@@ -458,99 +458,134 @@ export const Navbar: React.FC = () => {
           </div>
         )}
       </div>
+    </header>
 
-      {/* Mobile Drawer Menu - Frosted Glass Sheet */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[112px] bg-black/60 z-40 backdrop-blur-md animate-in fade-in">
-          <div className="liquid-glass w-4/5 max-w-sm h-full shadow-2xl p-6 overflow-y-auto border-r border-white/30 dark:border-white/10 rounded-r-3xl">
-            <div className="flex flex-col space-y-4">
-              
-              {/* User Profile / Auth Section at top of mobile drawer */}
-              {isAuthenticated ? (
-                <div className="pb-3 border-b border-white/20 dark:border-white/10 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-aura-gold to-aura-goldLight text-neutral-950 flex items-center justify-center text-sm font-bold shadow-sm">
-                      {user?.full_name?.charAt(0).toUpperCase() || 'U'}
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">{user?.full_name}</p>
-                      <span className="text-[10px] text-aura-gold uppercase font-mono tracking-wider font-semibold">
-                        {isAdmin ? 'Atelier Administrator' : 'Client Patron'}
-                      </span>
-                    </div>
+    {/* Mobile Drawer Menu - Frosted Glass Sheet (Rendered OUTSIDE <header> to break out of containing block) */}
+    {mobileMenuOpen && (
+      <div className="lg:hidden fixed inset-0 z-50 flex animate-in fade-in duration-200">
+        {/* Full Viewport Backdrop */}
+        <div
+          className="fixed inset-0 bg-black/75 backdrop-blur-md transition-opacity"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+
+        {/* Luxury Full-Height Drawer Sheet */}
+        <div className="relative w-[85%] max-w-sm h-full max-h-[100dvh] liquid-glass bg-white/95 dark:bg-[#0E0D0C]/95 text-neutral-900 dark:text-neutral-100 shadow-2xl p-6 overflow-y-auto border-r border-white/30 dark:border-white/10 rounded-r-3xl z-10 flex flex-col justify-between">
+          <div className="flex flex-col space-y-4">
+            
+            {/* Drawer Top Header with Atelier Branding & Close Button */}
+            <div className="flex items-center justify-between pb-3.5 border-b border-neutral-200/60 dark:border-white/10">
+              <AuraLogo variant="drawer" onClick={() => setMobileMenuOpen(false)} />
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-9 h-9 rounded-full liquid-pill flex items-center justify-center text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white focus:outline-none"
+                aria-label="Close mobile menu"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* User Profile / Auth Section at top of mobile drawer */}
+            {isAuthenticated ? (
+              <div className="pb-3 border-b border-neutral-200/50 dark:border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-aura-gold to-aura-goldLight text-neutral-950 flex items-center justify-center text-sm font-bold shadow-sm">
+                    {user?.full_name?.charAt(0).toUpperCase() || 'U'}
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">{user?.full_name}</p>
+                    <span className="text-[10px] text-aura-gold uppercase font-mono tracking-wider font-semibold">
+                      {isAdmin ? 'Atelier Administrator' : 'Client Patron'}
+                    </span>
                   </div>
                 </div>
-              ) : (
-                <Link
-                  to="/auth"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center py-2.5 bg-gradient-to-r from-aura-gold to-aura-goldLight text-neutral-950 text-xs uppercase tracking-widest font-bold rounded-full shadow-md flex items-center justify-center gap-2"
-                >
-                  <UserIcon size={15} />
-                  <span>Sign In / Atelier Account</span>
-                </Link>
-              )}
-
-              {/* Theme Toggle in Mobile Drawer */}
-              <div className="py-2.5 px-3 rounded-2xl bg-white/40 dark:bg-white/5 border border-white/30 dark:border-white/10 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wider font-semibold text-neutral-700 dark:text-neutral-300">
-                  Day / Night Mode
-                </span>
-                <ThemeToggle />
               </div>
+            ) : (
+              <Link
+                to="/auth"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center py-2.5 bg-gradient-to-r from-aura-gold to-aura-goldLight text-neutral-950 text-xs uppercase tracking-widest font-bold rounded-full shadow-md flex items-center justify-center gap-2"
+              >
+                <UserIcon size={15} />
+                <span>Sign In / Atelier Account</span>
+              </Link>
+            )}
 
-              {/* Atelier Collections Header */}
-              <span className="text-[10px] uppercase tracking-widest text-aura-gold font-bold pt-1 border-b border-white/20 dark:border-white/10 pb-1">
-                Atelier Collections
+            {/* Theme Toggle in Mobile Drawer */}
+            <div className="py-2.5 px-3 rounded-2xl bg-neutral-100/70 dark:bg-white/5 border border-neutral-200/60 dark:border-white/10 flex items-center justify-between">
+              <span className="text-xs uppercase tracking-wider font-semibold text-neutral-700 dark:text-neutral-300">
+                Day / Night Mode
               </span>
-              {drawerNavLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm font-semibold uppercase tracking-wider text-neutral-800 dark:text-neutral-200 hover:text-aura-gold py-1.5 px-2 rounded-lg hover:bg-white/40 dark:hover:bg-white/5 transition-all"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <ThemeToggle />
+            </div>
 
-              {/* Additional Mobile Navigation Links */}
-              <div className="pt-3 border-t border-white/20 dark:border-white/10 flex flex-col space-y-2.5">
-                <Link
-                  to="/wishlist"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300 hover:text-aura-gold py-1"
-                >
-                  <span className="flex items-center gap-2"><Heart size={15} /> Wishlist</span>
-                  {wishlist.length > 0 && (
-                    <span className="px-2 py-0.5 rounded-full bg-aura-gold/20 text-aura-gold text-[10px] font-bold">
-                      {wishlist.length}
-                    </span>
-                  )}
-                </Link>
-                {isAuthenticated && (
-                  <>
-                    {isAdmin && (
-                      <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-aura-gold py-1">
-                        <Shield size={15} /> Admin Console
-                      </Link>
-                    )}
-                    <Link to="/profile" onClick={() => setMobileMenuOpen(false)} className="text-xs uppercase tracking-wider text-neutral-700 dark:text-neutral-300 py-1">
-                      Client Profile & Addresses
-                    </Link>
-                    <Link to="/orders" onClick={() => setMobileMenuOpen(false)} className="text-xs uppercase tracking-wider text-neutral-700 dark:text-neutral-300 py-1">
-                      Order History & Returns
-                    </Link>
-                    <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="text-xs uppercase tracking-wider text-red-500 text-left py-1 flex items-center gap-2">
-                      <LogOut size={14} /> Sign Out
-                    </button>
-                  </>
-                )}
+            {/* Atelier Collections Header */}
+            <div className="pt-2">
+              <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-aura-gold font-bold pb-2 border-b border-neutral-200/50 dark:border-white/10 mb-2">
+                <span>Atelier Collections</span>
+                <span className="font-mono text-[9px] text-neutral-400">{drawerNavLinks.length}</span>
               </div>
+              
+              {/* Full-Height Scrollable Navigation Track */}
+              <div className="space-y-1 max-h-[48vh] sm:max-h-[55vh] overflow-y-auto pr-1">
+                {drawerNavLinks.map((link) => {
+                  const isActive = currentPath === link.path;
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex items-center justify-between text-xs font-semibold uppercase tracking-wider py-2.5 px-3 rounded-xl transition-all ${
+                        isActive
+                          ? 'liquid-btn-gold text-neutral-950 font-bold shadow-md'
+                          : 'text-neutral-700 dark:text-neutral-300 hover:text-aura-gold hover:bg-white/60 dark:hover:bg-white/5'
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-neutral-950" />}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Additional Mobile Navigation Links */}
+            <div className="pt-3 border-t border-neutral-200/50 dark:border-white/10 flex flex-col space-y-2.5">
+              <Link
+                to="/wishlist"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-neutral-700 dark:text-neutral-300 hover:text-aura-gold py-1"
+              >
+                <span className="flex items-center gap-2"><Heart size={15} /> Wishlist</span>
+                {wishlist.length > 0 && (
+                  <span className="px-2 py-0.5 rounded-full bg-aura-gold/20 text-aura-gold text-[10px] font-bold">
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
+              {isAuthenticated && (
+                <>
+                  {isAdmin && (
+                    <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-aura-gold py-1">
+                      <Shield size={15} /> Admin Console
+                    </Link>
+                  )}
+                  <Link to="/profile" onClick={() => setMobileMenuOpen(false)} className="text-xs uppercase tracking-wider text-neutral-700 dark:text-neutral-300 py-1">
+                    Client Profile & Addresses
+                  </Link>
+                  <Link to="/orders" onClick={() => setMobileMenuOpen(false)} className="text-xs uppercase tracking-wider text-neutral-700 dark:text-neutral-300 py-1">
+                    Order History & Returns
+                  </Link>
+                  <button onClick={() => { handleLogout(); setMobileMenuOpen(false); }} className="text-xs uppercase tracking-wider text-red-500 text-left py-1 flex items-center gap-2">
+                    <LogOut size={14} /> Sign Out
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
-      )}
-    </header>
+      </div>
+    )}
+  </>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { Shield, AlertCircle, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { AuraLogo } from '../components/common/AuraLogo';
 
 export const AuthPage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -50,12 +51,8 @@ export const AuthPage: React.FC = () => {
       <div className="max-w-md w-full liquid-glass rounded-3xl border border-white/80 dark:border-white/10 shadow-2xl p-8 sm:p-10 space-y-6">
         
         {/* Brand Header */}
-        <div className="text-center space-y-1">
-          <Link to="/" className="inline-block group">
-            <span className="font-serif text-3xl sm:text-4xl font-bold tracking-[0.25em] text-neutral-900 dark:text-neutral-100 group-hover:text-aura-gold transition-colors duration-300">
-              AURA
-            </span>
-          </Link>
+        <div className="text-center flex flex-col items-center justify-center space-y-2">
+          <AuraLogo variant="auth" />
           <p className="text-[10px] uppercase tracking-[0.3em] text-aura-gold font-bold">
             Atelier Client Portal
           </p>

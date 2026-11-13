@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Shield, Sparkles } from 'lucide-react';
+import { AuraLogo } from './AuraLogo';
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -21,14 +22,7 @@ export const Footer: React.FC = () => {
           
           {/* Brand Identity */}
           <div className="md:col-span-2 space-y-4">
-            <Link to="/" className="inline-block group">
-              <span className="font-serif text-3xl font-bold tracking-[0.25em] text-neutral-900 dark:text-neutral-100 group-hover:text-aura-gold transition-colors duration-300">
-                AURA
-              </span>
-              <span className="text-[9px] uppercase tracking-[0.4em] text-aura-gold font-bold block -mt-1">
-                HAUTE APPAREL ATELIER
-              </span>
-            </Link>
+            <AuraLogo variant="footer" />
             <p className="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-sm font-normal">
               Aura Apparel is dedicated to the art of architectural wardrobe curation. We weave certified mulberry silk, unspun Mongolian cashmere, and artisanal selvedge denim into timeless pieces designed to transcend fleeting seasons.
             </p>
